@@ -17,6 +17,7 @@ WORKDIR /tmp/cdo-1.9.2
 RUN ./configure --enable-netcdf4 --enable-zlib --with-netcdf=/usr/ --with-hdf5=/usr/ --with-grib_api=/usr/
 RUN make
 RUN make install
+WORKDIR /tmp
 
 # Clean up
 RUN rm -rf /tmp/*
