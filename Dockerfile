@@ -22,4 +22,7 @@ WORKDIR /tmp
 # Clean up
 RUN rm -rf /tmp/*
 
-CMD cdo
+RUN mkdir -p /data && chmod 777 /data
+WORKDIR /data
+
+CMD cdo --version
