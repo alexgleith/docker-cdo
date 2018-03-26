@@ -11,11 +11,12 @@ RUN apt-get update && apt-get install -y \
 
 # Install cdo from source, so that we get other format support
 WORKDIR /tmp
-RUN wget https://code.mpimet.mpg.de/attachments/download/16035/cdo-1.9.2.tar.gz -O /tmp/cdo-1.9.2.tar.gz \
-    && tar -xzvf cdo-1.9.2.tar.gz \
-    && cd /tmp/cdo-1.9.2 \
+RUN wget https://code.mpimet.mpg.de/attachments/download/16435/cdo-1.9.3.tar.gz -O /tmp/cdo-1.9.3.tar.gz \
+    && tar -xzvf cdo-1.9.3.tar.gz \
+    && cd /tmp/cdo-1.9.3 \
     && ./configure --enable-netcdf4 --enable-zlib --with-netcdf=/usr/ --with-hdf5=/usr/ --with-grib_api=/usr/ \
-    && make && make install \
+    && make \
+    && make install \
     && rm -rf /tmp/*
 
 RUN mkdir -p /data && chmod 777 /data
